@@ -2,7 +2,7 @@
  * Single source for external references shown across the legal pages.
  * Update these once and every page follows.
  */
-export const SITE_URL = "https://trackme.top";
+export const SITE_URL = "https://legal.trackme.top";
 
 export const CONTACT = {
   /** Primary privacy / data-protection contact. */

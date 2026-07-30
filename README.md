@@ -49,13 +49,19 @@ npm run build    # static export → ./out
 
 ## Deploying
 
-The domain is **trackme.top** (registered at GoDaddy). No `NEXT_PUBLIC_BASE_PATH` is set, so the site lives at the domain root and the pages resolve as `trackme.top/privacy`, `/terms`, `/account-deletion`.
+The site lives on the **`legal.trackme.top`** subdomain, deliberately *not* the apex — `trackme.top` itself is reserved for the marketing landing page and anything else that comes later.
 
-Two supported paths — pick one:
+`NEXT_PUBLIC_BASE_PATH` is unset, so pages resolve at the subdomain root: `legal.trackme.top/privacy`, `/terms`, `/account-deletion`.
 
-**Vercel** — import the repo, framework preset Next.js, then add `trackme.top` as a custom domain and point GoDaddy's DNS at Vercel. Nothing else to configure.
+**Current host — Vercel** (project `trackme-legal`). The repo is deployed there as an interim host until our own server is ready. The subdomain is already attached to the project; it needs one DNS record at GoDaddy:
 
-**Docker / Dokploy** — the `Dockerfile` builds the static export and serves it with a tiny nginx (`nginx.conf` maps clean URLs like `/privacy` onto the exported `/privacy.html`). Point Dokploy at this repo (`main`), build the image, and route `trackme.top` to it.
+| Type | Name | Value |
+| --- | --- | --- |
+| A | `legal` | `76.76.21.21` |
+
+Vercel issues the TLS certificate automatically once that record propagates.
+
+**Later — Docker / our own server.** The `Dockerfile` builds the static export and serves it with a tiny nginx (`nginx.conf` maps clean URLs like `/privacy` onto the exported `/privacy.html`), so moving off Vercel is a DNS change plus:
 
 ```bash
 docker build -t trackme-legal . && docker run -p 8080:80 trackme-legal
@@ -67,6 +73,6 @@ Both stores need the privacy URL, and Google Play additionally requires the acco
 
 | Field | URL |
 | --- | --- |
-| Privacy Policy (App Store + Play) | `https://trackme.top/privacy` |
-| Account deletion (Play Data safety) | `https://trackme.top/account-deletion` |
-| Terms of Service | `https://trackme.top/terms` |
+| Privacy Policy (App Store + Play) | `https://legal.trackme.top/privacy` |
+| Account deletion (Play Data safety) | `https://legal.trackme.top/account-deletion` |
+| Terms of Service | `https://legal.trackme.top/terms` |

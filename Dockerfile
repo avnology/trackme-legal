@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-# No NEXT_PUBLIC_BASE_PATH → the site lives at the root of trackme.top
+# No NEXT_PUBLIC_BASE_PATH → the site lives at the root of legal.trackme.top
 RUN npm run build
 
 # ── serve: tiny nginx serving the static export ──
