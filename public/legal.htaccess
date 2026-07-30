@@ -1,0 +1,49 @@
+# Track Me Legal Center — served as static files from Laravel's public/legal/.
+#
+# The Next.js export writes /privacy.html, but every link in the site points at
+# the extensionless /legal/privacy. Apache would hand those to Laravel's front
+# controller, so map them onto the .html files here.
+#
+# Two traps this works around:
+#   1. The export ALSO writes a privacy/ directory (holding the RSC payload),
+#      so a `!-d` guard would skip the rewrite and Apache would 403 on the
+#      unlistable directory. There is deliberately no `!-d` condition.
+#   2. DOCUMENT_ROOT is unreliable here — the parent .htaccess rewrites every
+#      request into public/, so the docroot-relative path is off by a segment.
+#      Testing %{REQUEST_FILENAME}.html uses the path Apache actually resolved.
+#
+# Scoped to this directory only — it does not affect the Laravel app around it.
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /legal/
+
+    # Never touch hashed build assets or images.
+    RewriteRule ^_next/ - [L]
+    RewriteRule ^img/ - [L]
+
+    # /legal/privacy → /legal/privacy.html, but only when that file really exists.
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+DirectoryIndex index.html
+
+# Stop mod_dir redirecting /legal/privacy → /legal/privacy/ before mod_rewrite
+# sees it; that redirect is what made the clean URLs 403 on the payload dirs.
+DirectorySlash Off
+
+# Directories like privacy/ hold only the RSC payload — never list them.
+Options -Indexes
+
+ErrorDocument 404 /legal/404.html
+
+# Hashed immutable build output can be cached hard; HTML must not be.
+<IfModule mod_headers.c>
+    <FilesMatch "\.(js|css|woff2|png|svg)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.html$">
+        Header set Cache-Control "public, max-age=0, must-revalidate"
+    </FilesMatch>
+</IfModule>
