@@ -3,10 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLang } from "@/components/LangContext";
-import { asset, CONTACT } from "@/lib/config";
+import { asset, COMPANY, CONTACT } from "@/lib/config";
 
 export default function Footer() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   return (
     <footer className="footer">
@@ -34,7 +34,9 @@ export default function Footer() {
       {/* the build year is baked into the static export; a visitor in a later
           year hydrates to the current one — suppress that expected mismatch */}
       <p className="footer-copy shell" suppressHydrationWarning>
-        © {new Date().getFullYear()} {CONTACT.company} · {t("footer.rights")}
+        © {new Date().getFullYear()} {CONTACT.company} ·{" "}
+        {lang === "ar" ? COMPANY.parentAr : COMPANY.parentEn} ·{" "}
+        {t("footer.rights")}
       </p>
     </footer>
   );

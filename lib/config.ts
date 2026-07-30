@@ -11,8 +11,27 @@ export const CONTACT = {
   supportEmail: "support@trackme.top",
   /** Legal / terms contact. */
   legalEmail: "legal@trackme.top",
+  /**
+   * Shown in the footer copyright. The controlling legal entity is ITMAAM
+   * (the App Store seller of record); Food Truck / Track Me is the brand
+   * operated under it. Full names live in COMPANY below.
+   */
   company: "Track Me",
   website: "https://trackme.top",
+};
+
+/**
+ * The legal entity behind the app, named in the "who we are" and governing-law
+ * sections of every document. ITMAAM is the parent company; Food Truck is the
+ * business operating the Track Me app beneath it.
+ */
+export const COMPANY = {
+  parentEn: "ITMAAM Digital Co. for E-Marketing",
+  parentAr: "شركة إتمام الرقمية للتسويق الإلكتروني",
+  brandEn: "Food Truck",
+  brandAr: "فود تراك",
+  appEn: "Track Me",
+  appAr: "تراك مي",
 };
 
 /** Store listings — linked from the deletion page so users can find the app. */

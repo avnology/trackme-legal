@@ -48,7 +48,11 @@ const privacyAr: LegalDocument = {
       blocks: [
         {
           type: "p",
-          text: "تراك مي منصة تربط أصحاب العربات والشاحنات المتنقلة (مثل عربات الطعام) بالعملاء: تصفّح المتاجر والمنتجات، تتبّع موقع العربة على الخريطة لحظة بلحظة، إنشاء الطلبات والدفع، محادثات مباشرة بين الطرفين، وإعلانات وظائف وتقديم عليها. مطوّر التطبيق ومشغّل الخدمة هو الجهة المسؤولة عن معالجة بياناتك («المتحكّم في البيانات»).",
+          text: "تراك مي منصة تربط أصحاب العربات والشاحنات المتنقلة (مثل عربات الطعام) بالعملاء: تصفّح المتاجر والمنتجات، تتبّع موقع العربة على الخريطة لحظة بلحظة، إنشاء الطلبات والدفع، محادثات مباشرة بين الطرفين، وإعلانات وظائف وتقديم عليها.",
+        },
+        {
+          type: "p",
+          text: "يُشغَّل تطبيق تراك مي تحت علامة «فود تراك» التابعة لـ«شركة إتمام الرقمية للتسويق الإلكتروني» (إتمام)، وهي الجهة المسؤولة قانونًا عن معالجة بياناتك الشخصية («المتحكّم في البيانات») والمالك المسجّل للتطبيق في متجري آبل وجوجل.",
         },
         {
           type: "p",
@@ -331,7 +335,11 @@ const privacyEn: LegalDocument = {
       blocks: [
         {
           type: "p",
-          text: "Track Me is a platform that connects owners of mobile trucks and vehicles (such as food trucks) with customers: browsing shops and products, following a truck's location live on the map, placing and paying for orders, direct chat between both sides, and job postings with applications. The app's developer and service operator is the party responsible for processing your data (the “data controller”).",
+          text: "Track Me is a platform that connects owners of mobile trucks and vehicles (such as food trucks) with customers: browsing shops and products, following a truck's location live on the map, placing and paying for orders, direct chat between both sides, and job postings with applications.",
+        },
+        {
+          type: "p",
+          text: "The Track Me app is operated under the “Food Truck” brand belonging to ITMAAM Digital Co. for E-Marketing (“ITMAAM”), which is the entity legally responsible for processing your personal data (the “data controller”) and the registered owner of the app on the Apple and Google stores.",
         },
         {
           type: "p",
@@ -610,7 +618,7 @@ const termsAr: LegalDocument = {
   slug: "terms",
   title: "شروط الاستخدام",
   intro:
-    "تحكم هذه الشروط استخدامك لتطبيق تراك مي. باستخدامك للتطبيق فأنت تقرّ بأنك قرأت هذه الشروط ووافقت على الالتزام بها. إن كنت لا توافق عليها، فضلاً لا تستخدم الخدمة.",
+    "تحكم هذه الشروط استخدامك لتطبيق تراك مي، المُشغَّل تحت علامة «فود تراك» التابعة لـ«شركة إتمام الرقمية للتسويق الإلكتروني». باستخدامك للتطبيق فأنت تقرّ بأنك قرأت هذه الشروط ووافقت على الالتزام بها. إن كنت لا توافق عليها، فضلاً لا تستخدم الخدمة.",
   sections: [
     {
       id: "eligibility",
@@ -787,7 +795,7 @@ const termsAr: LegalDocument = {
       blocks: [
         {
           type: "p",
-          text: "قد نعدّل هذه الشروط من وقت لآخر، وسنعلن عن التعديلات الجوهرية داخل التطبيق. استمرارك في الاستخدام بعد التعديل يعني قبولك له. تخضع هذه الشروط لقوانين البلد الذي يعمل فيه مشغّل الخدمة، وتختص محاكمه بأي نزاع ينشأ عنها.",
+          text: "قد نعدّل هذه الشروط من وقت لآخر، وسنعلن عن التعديلات الجوهرية داخل التطبيق. استمرارك في الاستخدام بعد التعديل يعني قبولك له. تخضع هذه الشروط لأنظمة المملكة العربية السعودية، البلد الذي تأسست فيه «شركة إتمام الرقمية للتسويق الإلكتروني»، وتختص محاكمها المختصة بالنظر في أي نزاع ينشأ عنها.",
         },
       ],
     },
@@ -808,7 +816,7 @@ const termsEn: LegalDocument = {
   slug: "terms",
   title: "Terms of Service",
   intro:
-    "These terms govern your use of the Track Me app. By using the app you confirm that you have read these terms and agree to be bound by them. If you do not agree, please do not use the service.",
+    "These terms govern your use of the Track Me app, operated under the “Food Truck” brand belonging to ITMAAM Digital Co. for E-Marketing. By using the app you confirm that you have read these terms and agree to be bound by them. If you do not agree, please do not use the service.",
   sections: [
     {
       id: "eligibility",
@@ -988,7 +996,7 @@ const termsEn: LegalDocument = {
       blocks: [
         {
           type: "p",
-          text: "We may amend these terms from time to time and will announce material changes inside the app. Continuing to use the service after an amendment means you accept it. These terms are governed by the laws of the country in which the service operator is established, and its courts have jurisdiction over any dispute arising from them.",
+          text: "We may amend these terms from time to time and will announce material changes inside the app. Continuing to use the service after an amendment means you accept it. These terms are governed by the laws of the Kingdom of Saudi Arabia, where ITMAAM Digital Co. for E-Marketing is established, and its competent courts have jurisdiction over any dispute arising from them.",
         },
       ],
     },
